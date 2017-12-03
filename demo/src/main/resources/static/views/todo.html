@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>ToDo</title>
+
+  
+    <script src="../js/angular.js"></script>
+    <script src="../js/todo.js"></script> 
+    <script src="../js/ng-table.min.js"></script> 
+    <link rel="stylesheet" href="../js/css/ng-table.min.css">
+   
+</head>
+<body>
+	
+    <h1>To Do</h1>
+    
+     <div ng-controller="todoControl as todo">
+    
+        <input type="text" ng-model="todo.inTodo"/>
+        <button ng-click="todo.add2TodoList()">Add</button>
+        
+        {{todo.todoList}}
+
+        <p>
+            <button ng-click="todo.update2TodoList()">Edit</button>
+            <table class="table">
+                <tr ng-repeat="i in todo.todoList">
+                    
+                    <td ng-show="!todo.isEdit"> {{i}}</td>
+                     <td ng-show="todo.isEdit"> 
+                        <input type="text" ng-model="todo.todoList[$index]"/>
+                    </td>
+                    <td ng-show="!todo.isEdit">
+                        <button ng-click="todo.removeFrom2doList('$index')"> Remove </button>
+                    </td>
+        
+                </tr>
+            </table>
+            <button ng-click="todo.save2TodoList()">save</button>
+
+        </p>
+        
+
+    </div>
+
+
+
+</body>
+</html>

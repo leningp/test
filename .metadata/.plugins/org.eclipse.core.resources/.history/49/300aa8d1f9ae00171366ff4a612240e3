@@ -1,0 +1,51 @@
+package com.lenin.test;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import com.lenin.model.Person;
+
+public class UnitOne {
+	
+	public static void main(String[] str) {
+		
+		List<Person> people = Arrays.asList(
+			new Person("p001", "Lenin", "Gowripatnam"),
+			new Person("p002", "John", "Hawk"),
+			new Person("p003", "Kim", "Barbara"),
+			new Person("p004", "Cristhopher", "bob"),
+			new Person("p005", "Alpha", "beta")
+		);
+		
+		Collections.sort(people,new Comparator<Person>() {
+
+			@Override
+			public int compare(Person p1, Person p2) {
+				return p1.getFirstName().compareToIgnoreCase(p2.getFirstName());
+			}
+				
+		});
+		
+		
+		printAll(people);
+		
+		
+				
+		
+		
+		
+	}
+
+	private static void printAll(List<Person> people) {
+		
+		for(Person p : people) {
+			System.out.println(p);
+		}
+		
+	}
+	
+	
+
+}
